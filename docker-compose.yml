@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: f1-telemetry-dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - OFFLINE_MODE=true
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: f1-localstack-mock
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,dynamodb,lambda
+      - DEFAULT_REGION=us-east-1
+    profiles:
+      - cloud-mock
