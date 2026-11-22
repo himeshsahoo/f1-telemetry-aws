@@ -35,6 +35,11 @@ if str(LAMBDA_DIR) not in sys.path:
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from components.header import render_dashboard_header
+from components.stint_chart import render_stint_strategy_chart
+from components.degradation_view import render_degradation_summary
+from components.telemetry_trace import render_driver_telemetry_trace_comparison
+
 from process_stints import (
     calculate_tire_degradation_slope,
     process_laps_dataframe,
