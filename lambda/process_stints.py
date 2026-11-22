@@ -28,6 +28,11 @@ from urllib.parse import unquote_plus
 
 import boto3
 import numpy as np
+try:
+    from logger import StructuredLogger
+    structured_log = StructuredLogger()
+except ImportError:
+    structured_log = None
 import pandas as pd
 
 # Logger setup
