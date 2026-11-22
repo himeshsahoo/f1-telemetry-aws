@@ -1,5 +1,7 @@
 # 🏎️ Serverless F1 Telemetry & Strategy Pipeline
 
+[![CodeQL](https://github.com/himeshsahoo/f1-telemetry-aws/actions/workflows/codeql.yml/badge.svg)]()
+[![CI](https://github.com/himeshsahoo/f1-telemetry-aws/actions/workflows/ci.yml/badge.svg)]()
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![AWS CDK v2](https://img.shields.io/badge/AWS-CDK%20v2-orange.svg)](https://aws.amazon.com/cdk/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-red.svg)](https://streamlit.io/)
@@ -53,6 +55,30 @@ The entire architecture is **100% AWS Free Tier friendly** and features a full *
 | **Total Cost** | — | — | **$0.00 / month** |
 
 ---
+
+
+---
+
+## 🐳 Docker Container Execution
+
+You can run the full telemetry dashboard inside a container without installing Python or local dependencies:
+
+```bash
+# Build and run with Docker Compose
+docker compose up dashboard
+
+# Or build standalone
+docker build -t f1-telemetry-dashboard .
+docker run -p 8501:8501 f1-telemetry-dashboard
+```
+Open [http://localhost:8501](http://localhost:8501) in your browser.
+
+---
+
+## 📚 Technical Documentation
+- [System Architecture & Data Flow](docs/architecture.md)
+- [Athena Partition Pruning & Cost Optimization](docs/athena_queries.md)
+- [Mathematical Formulation of Tire Degradation](docs/tire_degradation_model.md)
 
 ## 📁 Project Directory Structure
 
