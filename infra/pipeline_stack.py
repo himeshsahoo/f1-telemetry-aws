@@ -10,6 +10,13 @@ Provisions free-tier-optimized AWS serverless infrastructure:
 
 import os
 from constructs import Construct
+try:
+    from infra.config import PipelineConfig
+except ImportError:
+    try:
+        from config import PipelineConfig
+    except ImportError:
+        PipelineConfig = None
 import aws_cdk as cdk
 from aws_cdk import (
     Stack,
